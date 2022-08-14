@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 id="secret-text">text is to be Hidden</h1>
+    <input id="delete-confirm" type="text" placeholder="Please Enter 'Delete'">
+    <button id="delete-btn" disabled>Delete</button>
+
+    <script>
+        document.getElementById('delete-confirm').addEventListener('keyup', function(){
+            const deleteButton = document.getElementById('delete-btn');
+            const text = event.target.value
+            if(text === "Delete"){
+                deleteButton.removeAttribute('disabled');
+            }
+            else{
+                deleteButton.setAttribute('disabled', true);
+            }
+        })
+        document.getElementById('delete-btn').addEventListener('click', function(){
+            const secretText = document.getElementById('secret-text');
+            secretText.style.display = "none";
+        })
+    </script>
+</body>
+</html>

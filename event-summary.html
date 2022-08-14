@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Dom Dom Dom</h1>
+    <h3 id="changing-text">Default Text</h3>
+    <button onclick="changeText()">change text by onclick</button>
+    <button id="text-changer-btn">Change text by addEventListener</button>
+    <br> <br>
+
+    <h3 id="my-text">Text is to be changed</h3>
+    <input id="textfield" type="text">
+    <button id="update-btn">Update</button>
+
+
+    <script>
+        // const button = document.getElementById("update-btn");
+        document.getElementById('update-btn').addEventListener('click', function () {
+            const text = document.getElementById('my-text');
+            const textfield = document.getElementById("textfield");
+            text.innerText = textfield.value;
+            textfield.value = ""
+        })
+
+        function changeText() {
+            const text = document.getElementById('changing-text');
+            text.innerText = "Changed By onclick"
+        }
+
+        document.getElementById('text-changer-btn').addEventListener('click', function () {
+            const text = document.getElementById('changing-text');
+            text.innerText = "text changed by addEventListener";
+        })
+    </script>
+</body>
+
+</html>
